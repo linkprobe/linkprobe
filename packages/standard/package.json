@@ -1,5 +1,8 @@
 {
   "name": "@linkprobe/standard",
   "version": "0.1.0",
-  "description": "Standardized code style & lint rules for LinkProbe."
+  "description": "Standardized code style & lint rules for LinkProbe.",
+    "publishConfig": {
+    "access": "public"
+  }
 }
