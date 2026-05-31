@@ -1,0 +1,14 @@
+{
+    "extends": "@linkprobe/standard/tsconfig/base.json",
+    "compilerOptions": {
+        "rootDir": "."
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.test.*",
+        "dist",
+    ]
+}
