@@ -16,6 +16,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
+    "ignoreDeprecations": "6.0",
     "isolatedModules": true,
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
@@ -28,7 +29,8 @@
     "skipLibCheck": true,
     "sourceMap": false,
     "strict": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
   },
   "include": [],
   "exclude": ["node_modules"]
