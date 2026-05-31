@@ -1,6 +1,6 @@
 {
   "name": "@linkprobe/core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Core metadata extraction engine for LinkProbe",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
