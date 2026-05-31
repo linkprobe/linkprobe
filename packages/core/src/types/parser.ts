@@ -1,4 +1,4 @@
-import type { CheerioAPI } from "cheerio";
+import type {CheerioAPI} from "cheerio";
 
 export interface ParserContext {
   $: CheerioAPI;

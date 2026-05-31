@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
+import {describe, expect, it} from "vitest";
 
-import { probe } from "../src/probe";
+import {probe} from "../src/probe";
 
 describe("GitHub", () => {
   it("should extract metadata", async () => {

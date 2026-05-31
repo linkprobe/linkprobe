@@ -13,7 +13,7 @@ pnpm add @linkprobe/core
 ## Quick Start
 
 ```ts
-import { probe } from "@linkprobe/core";
+import {probe} from "@linkprobe/core";
 
 const result = await probe("https://github.com");
 
@@ -56,7 +56,7 @@ Metadata may be available from multiple sources.
 Use `resolveMetadata()` to create a unified representation using customizable priority rules.
 
 ```ts
-import { probe, resolveMetadata } from "@linkprobe/core";
+import {probe, resolveMetadata} from "@linkprobe/core";
 
 const result = await probe("https://github.com");
 
@@ -151,10 +151,5 @@ UNKNOWN_ERROR
 All public APIs are fully typed and exported by the package.
 
 ```ts
-import type {
-  Metadata,
-  ProbeResult,
-  ProbeOptions,
-  ResolvedMetadata,
-} from "@linkprobe/core";
+import type {Metadata, ProbeResult, ProbeOptions, ResolvedMetadata} from "@linkprobe/core";
 ```

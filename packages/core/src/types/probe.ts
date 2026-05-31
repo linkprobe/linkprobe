@@ -1,4 +1,4 @@
-import { Metadata } from "./metadata";
+import type {Metadata} from "./metadata";
 
 export interface ProbeOptions {
   timeout?: number;

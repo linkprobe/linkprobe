@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next",
+  "display": "React",
   "extends": "./base.json",
   "compilerOptions": {
     "jsx": "preserve",
@@ -9,7 +9,9 @@
     "moduleDetection": "force",
     "moduleResolution": "Bundler",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "plugins": [{"name": "next"}]
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
   },
   "include": [],
   "exclude": ["node_modules"]

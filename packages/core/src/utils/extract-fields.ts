@@ -4,8 +4,6 @@ export function extractFields(source?: Record<string, unknown>): string[] {
   }
 
   return Object.entries(source)
-    .filter(
-      ([, value]) => value !== undefined && value !== null && value !== "",
-    )
+    .filter(([, value]) => value !== undefined && value !== null && value !== "")
     .map(([key]) => key);
 }

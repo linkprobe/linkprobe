@@ -1,6 +1,6 @@
-import type { Metadata, MetadataCoverage } from "./types";
+import type {Metadata, MetadataCoverage} from "./types";
 
-import { resolveMetadata } from "./resolve-metadata";
+import {resolveMetadata} from "./resolve-metadata";
 
 const REQUIRED_FIELDS = ["title", "description", "image", "favicon"] as const;
 
@@ -10,8 +10,8 @@ export function getMetadataCoverage(metadata: Metadata): MetadataCoverage {
   const missing = REQUIRED_FIELDS.filter((field) => !resolved[field]);
 
   return {
-    score: Math.round((available.length / REQUIRED_FIELDS.length) * 100),
     available: [...available],
     missing: [...missing],
+    score: Math.round((available.length / REQUIRED_FIELDS.length) * 100),
   };
 }
