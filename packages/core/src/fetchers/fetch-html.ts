@@ -1,6 +1,6 @@
-import type {FetchHtmlResult, FetchHtmloptions} from "../types";
+import type {FetchHtmlOptions, FetchHtmlResult} from "../types";
 
-export async function fetchHtml(url: string, options: FetchHtmloptions): Promise<FetchHtmlResult> {
+export async function fetchHtml(url: string, options: FetchHtmlOptions): Promise<FetchHtmlResult> {
   const controller = new AbortController();
 
   const timeout = setTimeout(() => controller.abort(), options.timeout ?? 5000);

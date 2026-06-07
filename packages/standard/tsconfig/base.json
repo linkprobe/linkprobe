@@ -30,7 +30,7 @@
     "sourceMap": false,
     "strict": true,
     "verbatimModuleSyntax": true,
-    "tsBuildInfoFile": ".tsbuildinfo",
+    "tsBuildInfoFile": ".tsbuildinfo"
   },
   "include": [],
   "exclude": ["node_modules"]

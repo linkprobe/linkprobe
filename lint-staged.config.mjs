@@ -6,7 +6,7 @@ import {ESLint} from "eslint";
 const projectRoot = process.cwd();
 
 // Eslint mode: "Experimental" | "Legacy"
-const LINT_MODE = "Experimental";
+const LINT_MODE = "Legacy";
 
 const removeIgnoredFilesNew = async (files) => {
   try {

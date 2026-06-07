@@ -1,8 +1,38 @@
 {
   "name": "@linkprobe/standard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Standardized code style & lint rules for LinkProbe.",
-    "publishConfig": {
+  "license": "MIT",
+  "files": [
+    "eslint",
+    "prettier",
+    "tsconfig"
+  ],
+  "exports": {
+    "./eslint/base.mjs": "./eslint/base.mjs",
+    "./eslint/react.mjs": "./eslint/react.mjs",
+    "./eslint/next.mjs": "./eslint/next.mjs",
+    "./prettier/base.mjs": "./prettier/base.mjs",
+    "./tsconfig/base.json": "./tsconfig/base.json",
+    "./tsconfig/react.json": "./tsconfig/react.json",
+    "./tsconfig/nextjs.json": "./tsconfig/nextjs.json"
+  },
+  "author": {
+    "name": "Hossein-i",
+    "email": "sayhi@hossein-i.ir",
+    "url": "https://www.hossein-i.ir/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linkprobe/linkprobe.git",
+    "directory": "packages/standard"
+  },
+  "bugs": {
+    "url": "https://github.com/linkprobe/linkprobe/issues",
+    "email": "sayhi@hossein-i.ir"
+  },
+  "homepage": "https://github.com/linkprobe/linkprobe",
+  "publishConfig": {
     "access": "public"
   }
 }

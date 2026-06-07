@@ -9,8 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Hossein-i/linkprobe"
+    "url": "git+https://github.com/linkprobe/linkprobe.git"
   },
+  "bugs": {
+    "url": "https://github.com/linkprobe/linkprobe/issues",
+    "email": "sayhi@hossein-i.ir"
+  },
+  "homepage": "https://github.com/linkprobe/linkprobe",
   "scripts": {
     "dev": "turbo run dev",
     "lint": "turbo run lint",

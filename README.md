@@ -20,13 +20,12 @@ Whether you're building a blogging platform, CMS, social feed, documentation web
 
 ## Packages
 
-| Package            | Description                               | Documentation                           |
-| ------------------ | ----------------------------------------- | --------------------------------------- |
-| `@linkprobe/core`  | Metadata extraction and resolution engine | [Read more](./packages/core/README.md)  |
-| `@linkprobe/react` | React components for link previews        | [Read more](./packages/react/README.md) |
-| `@linkprobe/next`  | Next.js integrations and utilities        | [Read more](./packages/next/README.md)  |
+| Package               | Description                               | Documentation                              |
+| --------------------- | ----------------------------------------- | ------------------------------------------ |
+| `@linkprobe/core`     | Metadata extraction and resolution engine | [Read more](./packages/core/README.md)     |
+| `@linkprobe/standard` | Shared ESLint, Prettier, and TS configs   | [Read more](./packages/standard/README.md) |
 
-##
+Planned packages: `@linkprobe/react`, `@linkprobe/next`.
 
 ## Contributing
 

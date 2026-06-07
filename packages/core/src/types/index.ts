@@ -2,7 +2,7 @@ export type * from "./metadata";
 export type * from "./parser";
 export type * from "./probe";
 
-export interface FetchHtmloptions {
+export interface FetchHtmlOptions {
   timeout?: number;
 }
 

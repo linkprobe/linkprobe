@@ -1,6 +1,6 @@
 {
   "name": "@linkprobe/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core metadata extraction engine for LinkProbe",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -9,16 +9,21 @@
     "dist"
   ],
   "license": "MIT",
-  "author": "Hossein-i",
+  "author": {
+    "name": "Hossein-i",
+    "email": "sayhi@hossein-i.ir",
+    "url": "https://www.hossein-i.ir"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hossein-i/linkprobe.git",
+    "url": "git+https://github.com/linkprobe/linkprobe.git",
     "directory": "packages/core"
   },
   "bugs": {
-    "url": "https://github.com/Hossein-i/linkprobe/issues"
+    "url": "https://github.com/linkprobe/linkprobe/issues",
+    "email": "sayhi@hossein-i.ir"
   },
-  "homepage": "https://github.com/Hossein-i/linkprobe",
+  "homepage": "https://github.com/linkprobe/linkprobe",
   "scripts": {
     "lint": "eslint --max-warnings 0",
     "check-types": "tsc --noEmit",
@@ -34,7 +39,7 @@
     "typescript": "6.0.3",
     "vitest": "^4.1.7"
   },
-    "publishConfig": {
+  "publishConfig": {
     "access": "public"
   }
 }
