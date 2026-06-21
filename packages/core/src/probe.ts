@@ -2,9 +2,9 @@ import type {ParserContext, ProbeOptions, ProbeResult} from "./types";
 
 import {load} from "cheerio";
 
-import {buildDiagnostics} from "./build-diagnostics";
-import {extractMetadata} from "./extractors/extract-metadata";
-import {fetchHtml} from "./fetchers/fetch-html";
+import {extractMetadata} from "./extractors";
+import {fetchHtml} from "./fetchers";
+import {buildDiagnostics, getMetadataCoverage} from "./lib";
 
 export async function probe(url: string, options?: ProbeOptions): Promise<ProbeResult> {
   try {
@@ -17,8 +17,10 @@ export async function probe(url: string, options?: ProbeOptions): Promise<ProbeR
 
     const metadata = extractMetadata(context);
     const diagnostics = buildDiagnostics(metadata);
+    const coverage = getMetadataCoverage(metadata);
 
     return {
+      coverage,
       diagnostics,
       metadata,
       page: {

@@ -1,6 +1,6 @@
 import type {HtmlMetadata, MetadataParser, ParserContext} from "../types";
 
-import {resolveUrl} from "../utils/resolve-url";
+import {resolveUrl} from "../utils";
 
 export class HtmlMetaParser implements MetadataParser<HtmlMetadata> {
   parse(context: ParserContext): Partial<HtmlMetadata> {

@@ -1,6 +1,6 @@
-import type {Metadata, ProbeDiagnostics} from "./types";
+import type {Metadata, ProbeDiagnostics} from "../types";
 
-import {extractFields} from "./utils/extract-fields";
+import {extractFields} from "../utils";
 
 export function buildDiagnostics(metadata: Metadata): ProbeDiagnostics {
   const openGraphFields = extractFields(metadata.openGraph as Record<string, unknown>);

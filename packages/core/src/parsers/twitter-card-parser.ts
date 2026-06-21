@@ -1,6 +1,6 @@
 import type {MetadataParser, ParserContext, TwitterMetadata} from "../types";
 
-import {resolveUrl} from "../utils/resolve-url";
+import {resolveUrl} from "../utils";
 
 export class TwitterCardParser implements MetadataParser<TwitterMetadata> {
   parse(context: ParserContext): Partial<TwitterMetadata> {

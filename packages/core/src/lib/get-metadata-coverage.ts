@@ -1,6 +1,6 @@
-import type {Metadata, MetadataCoverage} from "./types";
+import type {Metadata, MetadataCoverage} from "../types";
 
-import {resolveMetadata} from "./resolve-metadata";
+import {resolveMetadata} from "../resolve-metadata";
 
 const REQUIRED_FIELDS = ["title", "description", "image", "favicon"] as const;
 

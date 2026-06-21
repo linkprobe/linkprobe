@@ -1,30 +1,30 @@
 export interface OpenGraphMetadata {
-  title?: string;
   description?: string;
   image?: string;
-  siteName?: string;
-  type?: string;
   locale?: string;
+  siteName?: string;
+  title?: string;
+  type?: string;
 }
 
 export interface TwitterMetadata {
-  title?: string;
+  creator?: string;
   description?: string;
   image?: string;
   site?: string;
-  creator?: string;
+  title?: string;
 }
 
 export interface HtmlMetadata {
-  title?: string;
+  canonicalUrl?: string;
   description?: string;
   favicon?: string;
-  canonicalUrl?: string;
+  title?: string;
 }
 
 export interface Metadata {
-  url: string;
+  html?: HtmlMetadata;
   openGraph?: OpenGraphMetadata;
   twitter?: TwitterMetadata;
-  html?: HtmlMetadata;
+  url: string;
 }

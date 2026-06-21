@@ -1,6 +1,6 @@
 import type {MetadataParser, OpenGraphMetadata, ParserContext} from "../types";
 
-import {resolveUrl} from "../utils/resolve-url";
+import {resolveUrl} from "../utils";
 
 export class OpenGraphParser implements MetadataParser<OpenGraphMetadata> {
   parse(context: ParserContext): Partial<OpenGraphMetadata> {
