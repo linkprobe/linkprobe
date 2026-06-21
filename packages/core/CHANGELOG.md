@@ -1,5 +1,16 @@
 # @linkprobe/core
 
+## 0.2.0
+
+### Minor Changes
+
+- 97c02fe: Introduce metadata coverage analysis and improve public API surface.
+
+  This update adds a new `coverage` field to probe results,
+  providing insight into metadata completeness and quality.
+
+  It also refines exported APIs to better reflect the intended public surface.
+
 ## 0.1.1
 
 ### Patch Changes
