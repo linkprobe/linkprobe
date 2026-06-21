@@ -5,6 +5,13 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -25,16 +32,17 @@
   },
   "homepage": "https://github.com/linkprobe/linkprobe",
   "scripts": {
+    "dev": "tsup --watch",
     "lint": "eslint --max-warnings 0",
     "check-types": "tsc --noEmit",
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup",
     "test": "vitest"
   },
   "dependencies": {
     "cheerio": "^1.2.0"
   },
   "devDependencies": {
-    "@linkprobe/standard": "workspace:*",
+    "@linkprobe/standard": "^0.1.1",
     "tsup": "^8.5.1",
     "typescript": "6.0.3",
     "vitest": "^4.1.7"

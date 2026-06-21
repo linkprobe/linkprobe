@@ -1,35 +1,23 @@
+import type {ProbeDiagnostics} from "./build-diagnostics";
 import type {Metadata} from "./metadata";
+import type {MetadataCoverage} from "./metadata-coverage";
 
 export interface ProbeOptions {
   timeout?: number;
 }
 
-export interface ProbeManyOptions extends ProbeOptions {
-  concurrency?: number;
-}
-
 export interface PageInfo {
-  requestedUrl: string;
-  finalUrl: string;
   contentType?: string;
-}
-
-export interface SourceDiagnostics {
-  detected: boolean;
-  fields: string[];
-}
-
-export interface ProbeDiagnostics {
-  openGraph?: SourceDiagnostics;
-  twitter?: SourceDiagnostics;
-  html?: SourceDiagnostics;
+  finalUrl: string;
+  requestedUrl: string;
 }
 
 export interface ProbeSuccess {
-  status: "success";
+  coverage: MetadataCoverage;
+  diagnostics: ProbeDiagnostics;
   metadata: Metadata;
   page: PageInfo;
-  diagnostics?: ProbeDiagnostics;
+  status: "success";
 }
 
 export interface ProbeError {
@@ -38,8 +26,8 @@ export interface ProbeError {
 }
 
 export interface ProbeFailed {
-  status: "failed";
   error: ProbeError;
+  status: "failed";
 }
 
 export type ProbeResult = ProbeSuccess | ProbeFailed;

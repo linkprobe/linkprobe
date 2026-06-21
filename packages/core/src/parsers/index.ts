@@ -1,9 +1,4 @@
-import {HtmlMetaParser} from "./html-meta-parser";
-import {OpenGraphParser} from "./open-graph-parser";
-import {TwitterCardParser} from "./twitter-card-parser";
-
-export const parsers = {
-  html: new HtmlMetaParser(),
-  openGraph: new OpenGraphParser(),
-  twitter: new TwitterCardParser(),
-};
+export * from "./html-meta-parser";
+export * from "./open-graph-parser";
+export * from "./parsers";
+export * from "./twitter-card-parser";

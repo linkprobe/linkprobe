@@ -2,9 +2,28 @@
 
 The framework-agnostic metadata extraction engine for LinkProbe.
 
-`@linkprobe/core` provides utilities for extracting and resolving webpage metadata from URLs. It supports Open Graph, Twitter Cards, and standard HTML metadata, making it ideal for building link previews, content cards, social embeds, and metadata-driven experiences.
+`@linkprobe/core` extracts, analyzes, and resolves webpage metadata from URLs including Open Graph, Twitter Cards, and HTML metadata.
+
+It is designed for building link previews, content cards, and metadata-driven applications.
+
+## Features
+
+* Open Graph metadata extraction
+* Twitter Card metadata extraction
+* HTML metadata extraction
+* Metadata resolution across multiple sources
+* Metadata coverage analysis
+* Metadata diagnostics
+* Fully typed API
+* Framework-agnostic core
 
 ## Installation
+
+```bash
+npm i @linkprobe/core
+```
+
+or
 
 ```bash
 pnpm add @linkprobe/core
@@ -13,7 +32,7 @@ pnpm add @linkprobe/core
 ## Quick Start
 
 ```ts
-import {probe} from "@linkprobe/core";
+import { probe } from "@linkprobe/core";
 
 const result = await probe("https://github.com");
 
@@ -22,74 +41,11 @@ if (result.status === "success") {
 }
 ```
 
-## Example Response
-
-```ts
-{
-  status: "success",
-  metadata: {
-    url: "https://github.com",
-    openGraph: {
-      title: "GitHub",
-      description: "...",
-      image: "..."
-    },
-    twitter: {
-      title: "GitHub"
-    },
-    html: {
-      title: "GitHub"
-    }
-  },
-  page: {
-    requestedUrl: "https://github.com",
-    finalUrl: "https://github.com",
-    contentType: "text/html"
-  }
-}
-```
-
-## Metadata Resolution
-
-Metadata may be available from multiple sources.
-
-Use `resolveMetadata()` to create a unified representation using customizable priority rules.
-
-```ts
-import {probe, resolveMetadata} from "@linkprobe/core";
-
-const result = await probe("https://github.com");
-
-if (result.status === "success") {
-  const metadata = resolveMetadata(result.metadata);
-
-  console.log(metadata);
-}
-```
-
-Example output:
-
-```ts
-{
-  title: "GitHub",
-  description: "...",
-  image: "...",
-  favicon: "...",
-  siteName: "GitHub"
-}
-```
-
-## Custom Priorities
-
-```ts
-const metadata = resolveMetadata(result.metadata, {
-  titlePriority: ["twitter", "openGraph", "html"],
-});
-```
-
-## Options
+## API
 
 ### probe(url, options)
+
+Extract metadata from a single URL.
 
 ```ts
 await probe("https://github.com", {
@@ -97,9 +53,96 @@ await probe("https://github.com", {
 });
 ```
 
-| Option  | Type   | Description                     |
-| ------- | ------ | ------------------------------- |
-| timeout | number | Request timeout in milliseconds |
+### probeMany(urls, options)
+
+Extract metadata from multiple URLs.
+
+```ts
+import { probeMany } from "@linkprobe/core";
+
+const results = await probeMany([
+  "https://github.com",
+  "https://vercel.com",
+]);
+```
+
+### resolveMetadata(metadata, options?)
+
+Resolve metadata using priority rules across sources.
+
+```ts
+import { resolveMetadata } from "@linkprobe/core";
+
+const resolved = resolveMetadata(result.metadata, {
+  titlePriority: ["openGraph", "twitter", "html"],
+});
+```
+
+## Coverage
+
+Indicates how complete the extracted metadata is.
+
+```ts
+result.coverage;
+```
+
+```ts
+{
+  available: ["title", "description", "image", "favicon"],
+  missing: [],
+  score: 100
+}
+```
+
+## Diagnostics
+
+Provides insight into detected metadata sources.
+
+```ts
+result.diagnostics;
+```
+
+```ts
+{
+  openGraph: {
+    detected: true,
+    fields: ["title", "description", "image"]
+  },
+  twitter: {
+    detected: true,
+    fields: ["title", "description"]
+  },
+  html: {
+    detected: true,
+    fields: ["title", "description", "favicon"]
+  }
+}
+```
+
+## Error Handling
+
+```ts
+const result = await probe(url);
+
+if (result.status === "failed") {
+  console.error(result.error.code, result.error.message);
+}
+```
+
+### Error Codes
+
+* FETCH_FAILED
+* TIMEOUT
+* UNKNOWN_ERROR
+
+## Custom Priorities
+
+```ts
+const resolved = resolveMetadata(result.metadata, {
+  titlePriority: ["twitter", "openGraph", "html"],
+  descriptionPriority: ["openGraph", "html", "twitter"],
+});
+```
 
 ## Supported Sources
 
@@ -128,28 +171,15 @@ await probe("https://github.com", {
 <link rel="canonical" />
 ```
 
-## Error Handling
-
-```ts
-const result = await probe(url);
-
-if (result.status === "failed") {
-  console.error(result.error.code, result.error.message);
-}
-```
-
-Possible error codes:
-
-```txt
-FETCH_FAILED
-TIMEOUT
-UNKNOWN_ERROR
-```
-
 ## TypeScript
 
-All public APIs are fully typed and exported by the package.
+All APIs are fully typed.
 
 ```ts
-import type {Metadata, ProbeResult, ProbeOptions, ResolvedMetadata} from "@linkprobe/core";
+import type {
+  ProbeResult,
+  Metadata,
+  ResolvedMetadata,
+  ProbeOptions,
+} from "@linkprobe/core";
 ```
